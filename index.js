@@ -29,6 +29,15 @@ app.get('/', (req, res)=>{
     res.send('Hello world from express / ');
 });
 
+//Para traer el recurso activo
+app.get('/api/activeresource',(req, res)=>{
+    const RESOURCES=getResources();
+
+    const activeResource=RESOURCES.find(resource=>resource.status==='active');
+    // res.send('Hello from api/resources ');
+    res.send(activeResource);//-->Se obtienen los datos de data.json
+});
+
 app.get('/api/resources',(req, res)=>{
     const RESOURCES=getResources();
 
@@ -47,6 +56,37 @@ app.get('/api/resources/:id',(req, res)=>{
     //Para probarlo, se hace la petición en el navegador a la URL con un id que se tenga en el JSON
 });
 
+//Para actualizar una tarea
+app.patch('/api/resources/:id',(req, res)=>{
+    const RESOURCES=getResources();
+
+    const {id}=req.params;//--> extrayendo el id. Se pone id porque así se ha definido en la URL dinámica
+    const index=RESOURCES.findIndex((item)=>item.id===id);//-->se busca en el arreglo
+
+    //verifica si el estado está Activo y si sí, lo guarda en esta var
+    const activeResource=RESOURCES.find(resource=>resource.status==='active');
+
+    RESOURCES[index]=req.body;
+
+    //Para que sólo haya un recurso activado a la vez
+    if(req.body.status==='active') {
+        if(activeResource) {
+            return res.status(422).send('There is active resource already');
+        }else {//si no: actívalo
+            RESOURCES[index].status='active';
+            RESOURCES[index].activationTime=new Date();
+        }
+    }
+
+    fs.writeFile(pathToFile, JSON.stringify(RESOURCES, null, 2), (error)=>{
+        if(error){
+            return res.status(422).send('Cannot store data in the file');
+        }else {
+            return res.send('Datos actualizados');
+        }
+    })
+});
+
 app.post('/api/resources',(req, res)=>{
     const RESOURCES=getResources();
     const resource=req.body;
@@ -59,7 +99,6 @@ app.post('/api/resources',(req, res)=>{
         if(error){
             return res.status(422).send('Cannot store data in the file');
         }else {
-
             return res.send('Datos recibidos en node');
         }
     })
