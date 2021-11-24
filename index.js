@@ -12,7 +12,8 @@ const express=require('express');
 // app.use(cors(corstOptions));
 
 const app=express();
-const PORT=3001;
+//Para poder ejecutarlo en heroku
+const PORT=process.env.PORT || 3001;
 
 const fs=require('fs');
 
