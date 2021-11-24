@@ -16,7 +16,6 @@ const PORT=3001;
 
 const fs=require('fs');
 
-
 const path=require('path');
 const pathToFile=path.resolve('./data.json');
 console.log(pathToFile);
@@ -65,6 +64,10 @@ app.patch('/api/resources/:id',(req, res)=>{
 
     //verifica si el estado está Activo y si sí, lo guarda en esta var
     const activeResource=RESOURCES.find(resource=>resource.status==='active');
+
+    if(RESOURCES[index].status==='complete') {
+        return res.status(422).send('Cannot activate because resource has been completed');
+    };
 
     RESOURCES[index]=req.body;
 
