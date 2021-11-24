@@ -1,6 +1,6 @@
 [
   {
-    "title": "Tiffany 12",
+    "title": "Go to the cinema",
     "description": "Cinema",
     "link": "4",
     "priority": "2. Keep it in mind",
@@ -11,8 +11,8 @@
     "activationTime": "2021-11-24T01:57:08.980Z"
   },
   {
-    "title": "Sahori 22",
-    "description": "Movie",
+    "title": "Go for a walk",
+    "description": "Santa Fe",
     "link": "no yet",
     "priority": "2. Keep it in mind",
     "timeToFinish": "3",
@@ -21,8 +21,8 @@
     "id": "1637624715037"
   },
   {
-    "title": "Mon",
-    "description": "parque",
+    "title": "Take a coffee with friends",
+    "description": "Starbucks",
     "link": "si",
     "priority": "2. Keep it in mind",
     "timeToFinish": "5",
@@ -31,43 +31,13 @@
     "id": "1637386208595"
   },
   {
-    "title": "Majo",
-    "description": "hola",
+    "title": "Ride bicycle",
+    "description": "Fridday night",
     "link": "Guadalupe",
     "priority": "2. Keep it in mind",
     "timeToFinish": "4",
     "createdAt": "2021-11-20T05:29:29.102Z",
     "status": "inactive",
     "id": "1637386169102"
-  },
-  {
-    "title": "seb",
-    "description": "Silvana",
-    "link": "Nayeli",
-    "priority": "2. Keep it in mind",
-    "timeToFinish": "3",
-    "createdAt": "2021-11-20T05:19:55.036Z",
-    "status": "inactive",
-    "id": "1637385595036"
-  },
-  {
-    "title": "seb",
-    "description": "jaz",
-    "link": "rocío",
-    "priority": "2. Keep it in mind",
-    "timeToFinish": "3",
-    "createdAt": "2021-11-20T05:11:14.622Z",
-    "status": "inactive",
-    "id": "1637385074622"
-  },
-  {
-    "title": "seb",
-    "description": "uyte",
-    "link": "utreutr",
-    "priority": "2. Keep it in mind",
-    "timeToFinish": "3",
-    "createdAt": "2021-11-20T05:08:54.174Z",
-    "status": "inactive",
-    "id": "1637384934174"
   }
 ]
